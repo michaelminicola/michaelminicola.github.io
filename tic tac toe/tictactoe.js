@@ -10,14 +10,12 @@ function playerTakeTurn(e){
 	checkGameStatus();
 	} else {
 		showLightBox("This box is already selected.", "Please try another.");
-		console.log("this box is already selected, please try again");
 		return;
 	} // else
 
 	// game is over
 	if (gameStatus != ""){
 		showLightBox(gameStatus, "Game over.");
-		console.log("Game is over, " + gameStatus);
 	}
 
 } // playerTakeTurn
@@ -31,14 +29,12 @@ function checkGameStatus(){
 // check for a win
 if (checkWin()){
 	gameStatus = currentPlayer + " wins!";
-	console.log("Game status: " + gameStatus);
 }
 
 
 // check for tie
 if (numTurns == 9) {
 	gameStatus = "Tie Game"; 
-	console.log("Game status: " + gameStatus);
 } //  if
 
 	// switch current player
