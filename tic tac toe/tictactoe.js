@@ -1,6 +1,41 @@
 let currentPlayer = "X";
 let gameStatus = ""; // "" - continue game, "Tie", "X Wins", "O Wins"
 let numTurns = 0;
+let idNames = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+
+// reset board and all variables
+function newGame() {
+
+	// reset board
+	for (var i = 0; i < idNames.length; i++) {
+		document.getElementById(idNames[i]).innerHTML = "";
+	} // for
+
+	numTurns = 0;
+	gameStatus = "";
+	currentPlayer = "X";
+
+	changeVisibility("controls");
+
+	} // newGame
+
+// randomly chooses a free box for computer
+function computerTakeTurn(){
+	let idName = "";
+
+	// choose random boxes until an empty box is found
+	do {
+		let rand = parseInt(Math.random()*9) + 1; // 1-9
+		idName = idNames[rand-1]; 
+
+		// check if chosen box is empty
+		if (document.getElementById(idName).innerHTML == "") {
+			document.getElementById(idName).innerHTML = currentPlayer;
+			break;
+		}
+	} while (true);
+} // computer take turn
+
 
 // take player turn
 function playerTakeTurn(e){
@@ -8,15 +43,22 @@ function playerTakeTurn(e){
 	if (e.innerHTML == "") {
 	e.innerHTML = currentPlayer;
 	checkGameStatus();
+
+	// if the game not over, computer goes
+	if (gameStatus == ""){
+		setTimeout(function() {
+			computerTakeTurn();
+			checkGameStatus();
+		}, 500
+		);
+	} // if
+
+
 	} else {
 		showLightBox("This box is already selected.", "Please try another.");
 		return;
 	} // else
 
-	// game is over
-	if (gameStatus != ""){
-		showLightBox(gameStatus, "Game over.");
-	}
 
 } // playerTakeTurn
 
@@ -39,6 +81,11 @@ if (numTurns == 9) {
 
 	// switch current player
 	currentPlayer = (currentPlayer == "X" ? "O" : "X");
+ 
+// game is over
+	if (gameStatus != ""){
+		setTimeout(function() {showLightBox(gameStatus, "Game over.");}, 500);
+	}
  
 } // checkGameStatus
 
@@ -112,6 +159,9 @@ function continueGame() {
 	changeVisibility("boundaryMessage");
 
 	// if the game is over, show controls
+	if (gameStatus != "") {
+		changeVisibility("controls");
+	}
 
 } // continueGame
 
