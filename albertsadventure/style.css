@@ -1,0 +1,122 @@
+body {
+	background-color:black;
+}
+
+#gameBoard {
+	border:1px solid black;
+	display:grid;
+	grid-template-columns: 120px 120px 120px 120px 120px;
+	grid-template-rows: 120px 120px 120px 120px 120px;
+	justify-content: center;
+	width:600px;
+	height:600px;
+
+	margin-left: auto;
+	margin-right:auto;
+}
+
+#gameBoard div{
+	background-color:#00EE00;
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+.rider {
+	background-image:url("images/rider.png");
+}
+
+.tree {
+	background-image:url("images/tree.png");
+}
+
+.flag {
+	background-image:url("images/flag.png");
+}
+
+.rock {
+	background-image:url("images/rock.png");
+}
+
+.fenceup {
+	background-image:url("images/fenceu.png");
+}
+
+.fenceside {
+	background-image:url("images/fence.png");
+}
+
+/* .water {
+	background-image:url("images/water.png");
+} */
+
+.pigup {
+	background-image:url("images/pigu.png");
+}
+
+.pigleft {
+	background-image:url("images/pigl.png");
+}
+
+.pigright {
+	background-image:url("images/pigr.png");
+}
+
+.pigdown {
+	background-image:url("images/pigd.png");
+}
+
+.goodpigup {
+	background-image:url("images/gpigu.png");
+}
+
+.goodpigleft {
+	background-image:url("images/gpigl.png");
+}
+
+.goodpigright {
+	background-image:url("images/gpigr.png");
+}
+
+.goodpigdown {
+	background-image:url("images/gpigd.png");
+}
+
+.badpigup {
+	background-image:url("images/bpigu.png");
+}
+
+.badpigleft {
+	background-image:url("images/bpigl.png");
+}
+
+.badpigright {
+	background-image:url("images/bpigr.png");
+}
+
+.badpigdown {
+	background-image:url("images/bpigd.png");
+}
+
+.fencejumpup {
+	background-image:url("images/fencejumpu.png");
+}
+
+.fencejumpleft {
+	background-image:url("images/fencejumpl.png");
+}
+
+.fencejumpright {
+	background-image:url("images/fencejumpr.png");
+}
+
+.fencejumpdown {
+	background-image:url("images/fencejumpd.png");
+}
+
+.bridge {
+	background-color:#800020 !important;
+}
+
+.water {
+	background-color:blue !important;
+} 
